@@ -88,7 +88,7 @@ async function seed() {
       {
         name: "RD Station",
         slug: "rd-station",
-        logo: "https://logo.clearbit.com/rdstation.com",
+        logo: "/orbi/logos/rd-station.png",
         coverImage: "https://images.unsplash.com/photo-1531973576160-7125cd663d86?w=1200&h=400&fit=crop",
         tagline: "Ajudamos empresas a crescer com marketing digital e CRM.",
         description: "A RD Station é a maior plataforma de marketing digital e CRM da América Latina. Fundada em Florianópolis em 2011, hoje atendemos mais de 50.000 empresas no Brasil e no mundo. Nossa cultura é baseada em autonomia, aprendizado e impacto real nos negócios dos nossos clientes. Aqui você vai crescer profissionalmente em um ambiente desafiador e colaborativo.",
