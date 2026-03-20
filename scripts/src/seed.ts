@@ -212,7 +212,7 @@ async function seed() {
       {
         name: "WEG",
         slug: "weg",
-        logo: "https://logo.clearbit.com/weg.net",
+        logo: "/orbi/logos/weg.png",
         coverImage: "https://images.unsplash.com/photo-1581093806997-124204d9fa9d?w=1200&h=400&fit=crop",
         tagline: "Tecnologia que move o mundo — de Jaraguá do Sul para o planeta.",
         description: "A WEG é uma das maiores fabricantes de equipamentos elétricos do mundo, fundada em 1961 em Jaraguá do Sul/SC. Com presença em mais de 135 países e mais de 40.000 colaboradores, investimos fortemente em tecnologia, automação e digitalização industrial. Nossa área de TI e Digital está crescendo aceleradamente — buscamos engenheiros, analistas e especialistas em dados para transformar a indústria global com software e inteligência artificial.",
