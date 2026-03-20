@@ -76,7 +76,15 @@ export function TeamVideoCard({ video }: TeamVideoCardProps) {
             onClick={(e) => e.stopPropagation()}
           >
             <iframe
-              src={`${video.url}?autoplay=1`}
+              src={(() => {
+                try {
+                  const u = new URL(video.url);
+                  u.searchParams.set("autoplay", "1");
+                  return u.toString();
+                } catch {
+                  return `${video.url}?autoplay=1`;
+                }
+              })()}
               title={`${video.name} — ${video.role}`}
               className="w-full h-full"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
