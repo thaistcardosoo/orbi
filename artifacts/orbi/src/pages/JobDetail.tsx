@@ -8,6 +8,7 @@ import { useGetJob } from "@workspace/api-client-react";
 import type { FaqItem } from "@workspace/api-client-react";
 import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
+import ApplicationModal from "@/components/ApplicationModal";
 
 const MODALITY_LABELS: Record<string, string> = {
   presencial: "Presencial",
@@ -147,14 +148,12 @@ export default function JobDetail() {
   const params = useParams<{ id: string }>();
   const id = Number(params.id);
   const { toast } = useToast();
+  const [applyOpen, setApplyOpen] = useState(false);
 
   const { data: job, isLoading, error } = useGetJob(id);
 
   function handleApply() {
-    toast({
-      title: "Candidatura enviada!",
-      description: "Sua candidatura foi registrada com sucesso. Boa sorte!",
-    });
+    setApplyOpen(true);
   }
 
   function handleCopyLink() {
@@ -405,6 +404,14 @@ export default function JobDetail() {
       </div>
 
       <Footer />
+
+      {job && (
+        <ApplicationModal
+          open={applyOpen}
+          onClose={() => setApplyOpen(false)}
+          job={job}
+        />
+      )}
     </div>
   );
 }
