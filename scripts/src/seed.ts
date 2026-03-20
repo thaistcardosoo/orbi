@@ -111,6 +111,7 @@ async function seed() {
         teamVideos: [
           { url: "https://www.youtube.com/embed/8S0FDjFBj8o", name: "Mariana Ferreira", role: "Engenheira de Software Pleno" },
           { url: "https://www.youtube.com/embed/iCvmsMzlF7o", name: "Diego Moraes", role: "Growth Manager" },
+          { url: "https://www.youtube.com/embed/6JYIGclVQdw", name: "Camila Andrade", role: "Customer Success Manager" },
         ],
       },
       {
@@ -320,6 +321,7 @@ async function seed() {
         teamVideos: [
           { url: "https://www.youtube.com/embed/UF8uR6Z6KLc", name: "Camila Luz", role: "Desenvolvedora Frontend" },
           { url: "https://www.youtube.com/embed/iCvmsMzlF7o", name: "Lucas Pereira", role: "Analista de BI" },
+          { url: "https://www.youtube.com/embed/8S0FDjFBj8o", name: "Renata Nunes", role: "Eng. de Dados IoT" },
         ],
       },
     ])

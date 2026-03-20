@@ -3,8 +3,17 @@ import { X } from "lucide-react";
 import type { TeamVideo } from "@workspace/api-client-react";
 
 function extractYouTubeId(url: string): string | null {
-  const match = url.match(/embed\/([^?&]+)/);
-  return match ? match[1] : null;
+  const patterns = [
+    /embed\/([^?&/]+)/,
+    /[?&]v=([^?&/]+)/,
+    /youtu\.be\/([^?&/]+)/,
+    /watch\?v=([^?&/]+)/,
+  ];
+  for (const re of patterns) {
+    const m = url.match(re);
+    if (m) return m[1];
+  }
+  return null;
 }
 
 interface TeamVideoCardProps {
