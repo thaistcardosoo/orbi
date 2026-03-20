@@ -1,0 +1,494 @@
+Análise Detalhada: Welcome to the Jungle
+
+📊 Visão Geral da Plataforma
+
+O Welcome to the Jungle é uma plataforma de recrutamento focada em employer branding e experiência do candidato. Diferencia-se de sites tradicionais de vagas por contar histórias sobre as empresas, não apenas listar posições.
+
+
+
+
+🎯 Modelo de Negócio (B2B)
+
+Receita Principal: Empresas Pagam para Recrutar
+
+1.
+Postagem de Vagas: Empresas pagam para postar vagas na plataforma
+
+2.
+Pacotes Premium: Diferentes níveis de visibilidade e recursos
+
+3.
+Employer Branding: Empresas pagam para criar perfis destacados com:
+
+•
+Vídeos da equipe e cultura
+
+•
+Fotos do escritório/ambiente
+
+•
+Descrições detalhadas da cultura
+
+•
+Depoimentos de funcionários
+
+
+
+Modelo B2C: Candidatos Usam Gratuitamente
+
+•
+Candidatos acessam vagas sem pagar
+
+•
+Podem criar perfis e receber oportunidades
+
+•
+Acompanham empresas e recebem notificações
+
+
+
+
+💡 Diferenciais Principais
+
+1. Foco em Employer Branding
+
+•
+Cada empresa tem um perfil completo (não apenas lista de vagas)
+
+•
+Seção "Sobre a Empresa" com:
+
+•
+Descrição da missão e valores
+
+•
+Tamanho da equipe
+
+•
+Ano de fundação
+
+•
+Idade média dos colaboradores
+
+•
+Localização(ões)
+
+•
+Número de funcionários
+
+
+
+2. Conteúdo Multimídia
+
+•
+Vídeos: Apresentação da empresa, tour do escritório, depoimentos
+
+•
+Fotos: Ambiente de trabalho, equipe, eventos
+
+•
+Storytelling: Narrativas sobre a cultura e valores
+
+3. Experiência do Candidato
+
+•
+Busca inteligente por vaga, empresa ou palavra-chave
+
+•
+Filtros por:
+
+•
+Tipo de contrato (CLT, PJ, Estágio)
+
+•
+Localização
+
+•
+Profissão/Função
+
+•
+Nível de experiência
+
+•
+Modalidade (Presencial, Remoto, Híbrido)
+
+
+
+•
+Salários visíveis (quando informados)
+
+4. Categorização de Empresas
+
+•
+Abas por setor:
+
+•
+Highlight (destaque)
+
+•
+Tech
+
+•
+Advertising / Marketing
+
+•
+Culture / Media
+
+•
+Consulting / Audit
+
+•
+E outras indústrias
+
+
+
+5. Conteúdo Educacional
+
+•
+Seção "Media" com:
+
+•
+Artigos sobre carreira
+
+•
+Dicas de entrevista
+
+•
+Tendências do mercado
+
+•
+Perfis de profissionais
+
+•
+Vídeos inspiracionais
+
+
+
+
+
+
+🏗️ Estrutura da Página da Empresa
+
+Header
+
+•
+Logo/Nome da empresa
+
+•
+Botão "Seguir" (para receber notificações)
+
+•
+Links para redes sociais
+
+Seção Principal
+
+•
+Informações Chave:
+
+•
+Ano de fundação
+
+•
+Número de colaboradores
+
+•
+Idade média
+
+•
+Faturamento (quando disponível)
+
+•
+Endereço
+
+
+
+•
+Descrição: Texto sobre a empresa e sua missão
+
+•
+Vídeo: Apresentação em vídeo (elemento destacado)
+
+•
+Fotos: Galeria da empresa, equipe, escritório
+
+Seção de Vagas
+
+•
+Lista de todas as vagas abertas
+
+•
+Filtros por tipo, localização, profissão
+
+•
+Ordenação por relevância ou data
+
+Seção de Cultura
+
+•
+"Ce qu'ils recherchent" (O que eles procuram)
+
+•
+Valores da empresa
+
+•
+Benefícios oferecidos
+
+•
+Descrição do ambiente de trabalho
+
+
+
+
+🎨 Design & UX
+
+Paleta de Cores
+
+•
+Amarelo Vibrante: Hero section e destaque (#FFD700 ou similar)
+
+•
+Preto: Textos e elementos principais
+
+•
+Branco: Fundo
+
+•
+Cinza: Textos secundários
+
+Tipografia
+
+•
+Sans-serif moderna (provavelmente Montserrat ou similar)
+
+•
+Hierarquia clara entre títulos e corpo
+
+Layout
+
+•
+Hero Section: Amarelo com call-to-action principal
+
+•
+Grid de Empresas: 3 colunas em desktop
+
+•
+Cards: Sombras suaves, bordas arredondadas
+
+•
+Navegação: Top bar sticky com logo, busca global e menu
+
+Elementos Interativos
+
+•
+Busca global no header (busca por vaga, empresa ou artigo)
+
+•
+Filtros dinâmicos
+
+•
+Hover effects em cards
+
+•
+Botões destacados em amarelo/preto
+
+
+
+
+📱 Funcionalidades Principais
+
+Para Candidatos
+
+1.
+Busca Avançada: Por vaga, empresa, localização, profissão
+
+2.
+Perfil Pessoal: Criar perfil e deixar-se "descobrir" por empresas
+
+3.
+Aplicação: Candidatar-se a vagas diretamente
+
+4.
+Seguir Empresas: Receber notificações de novas vagas
+
+5.
+Salvar Vagas: Guardar vagas favoritas
+
+6.
+Dashboard: Gerenciar candidaturas e perfil
+
+Para Empresas
+
+1.
+Perfil Empresarial: Criar e customizar perfil
+
+2.
+Postagem de Vagas: Postar e gerenciar vagas
+
+3.
+Recrutamento: Visualizar candidatos e gerenciar candidaturas
+
+4.
+Analytics: Ver estatísticas de visualizações e candidatos
+
+5.
+Employer Branding: Adicionar conteúdo multimídia
+
+
+
+
+🌍 Abrangência Geográfica
+
+•
+Países: França, Reino Unido, Alemanha, Espanha, Portugal, Bélgica, Suíça, Canadá, EUA
+
+•
+Idiomas: Múltiplos idiomas por região
+
+•
+Localização: Cidades principais em cada país
+
+
+
+
+💰 Estratégia de Monetização
+
+Receitas Diretas
+
+1.
+Postagem de Vagas: Pacotes básicos e premium
+
+2.
+Destaque de Vagas: Aparecer em posição privilegiada
+
+3.
+Perfil Destacado: Empresa em destaque na home
+
+4.
+Pacotes Anuais: Descontos para contratações em volume
+
+Receitas Indiretas
+
+1.
+Publicidade: Anúncios de empresas na plataforma
+
+2.
+Conteúdo Patrocinado: Artigos e vídeos patrocinados
+
+3.
+Dados: Insights sobre mercado de trabalho (anonimizados)
+
+
+
+
+🔑 Insights para a Orbi (Mercado Brasileiro)
+
+O que Funciona no Welcome to the Jungle:
+
+1.
+✅ Employer Branding: Empresas querem contar suas histórias
+
+2.
+✅ Conteúdo Multimídia: Vídeos e fotos aumentam engajamento
+
+3.
+✅ Busca Inteligente: Filtros avançados melhoram UX
+
+4.
+✅ Comunidade: Seguir empresas cria relacionamento
+
+5.
+✅ Educação: Conteúdo sobre carreira agrega valor
+
+Oportunidades para Orbi no Brasil:
+
+1.
+🎯 Localização: Adaptar para cidades brasileiras e cultura local
+
+2.
+🎯 Salários: Mostrar salários em reais (transparência)
+
+3.
+🎯 Benefícios: Destacar benefícios populares no Brasil (VR, VA, Plano de Saúde)
+
+4.
+🎯 Startups: Foco em startups e empresas em crescimento
+
+5.
+🎯 Diversidade: Destacar empresas com políticas de diversidade
+
+6.
+🎯 Remoto: Enfatizar oportunidades de trabalho remoto/híbrido
+
+7.
+🎯 Comunidade: Criar comunidade de profissionais brasileiros
+
+
+
+
+📊 Estatísticas Observadas
+
+•
+75.259 vagas listadas na plataforma (no momento da análise)
+
+•
+Múltiplas categorias de empresas
+
+•
+Filtros por localização: Cidades principais em cada país
+
+•
+Tipos de contrato: CLT, PJ, Estágio, Freelancer
+
+•
+Níveis: Júnior, Pleno, Sênior, Especialista
+
+
+
+
+🎬 Elementos de Vídeo
+
+O Welcome to the Jungle dá grande destaque a vídeos:
+
+•
+Vídeo Hero: Na página da empresa
+
+•
+Vídeos de Cultura: Mostrando o dia a dia
+
+•
+Depoimentos: De funcionários
+
+•
+Tours: Do escritório/ambiente
+
+•
+Apresentações: Da empresa e seus projetos
+
+Isso é um diferencial importante que a Orbi pode implementar.
+
+
+
+
+🚀 Conclusão
+
+O Welcome to the Jungle é mais que um site de vagas - é uma plataforma de conexão entre talentos e empresas, com foco em storytelling e employer branding.
+
+Para a Orbi ter sucesso no Brasil, deve:
+
+1.
+Copiar o modelo de employer branding
+
+2.
+Adaptar para o mercado brasileiro (cidades, salários, benefícios)
+
+3.
+Investir em conteúdo educacional
+
+4.
+Criar comunidade de profissionais
+
+5.
+Facilitar a postagem de vagas para empresas
+
+O MVP criado já implementa os elementos principais. Os próximos passos seriam adicionar vídeos, mais conteúdo educacional e um dashboard para empresas.
+

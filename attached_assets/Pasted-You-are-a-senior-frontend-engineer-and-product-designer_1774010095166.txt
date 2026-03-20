@@ -1,0 +1,149 @@
+You are a senior frontend engineer and product designer.
+
+I want to build an MVP VERY CLOSE in structure and user experience to the platform "Welcome to the Jungle".
+
+IMPORTANT:
+- Do NOT copy any exact text or proprietary content
+- Recreate the SAME TYPE OF STRUCTURE, layout, sections, and UX patterns
+- Rewrite ALL content in Brazilian Portuguese with original wording
+- The goal is to feel almost identical in experience, but legally safe
+
+---
+
+## Project Name
+Orbi
+
+---
+
+## Core Goal
+
+Recreate a highly polished job platform with:
+
+- Strong visual storytelling
+- Company-focused pages
+- Modern UI
+- Discovery experience (not just job listings)
+
+---
+
+## Language
+
+- All UI text MUST be in Brazilian Portuguese
+- Code must be in English
+
+---
+
+## Pages
+
+### 1. Home Page
+
+Structure should mirror modern job platforms:
+
+- Hero section with headline + subheadline
+- Search bar (positioned prominently)
+- Section: "Empresas em destaque"
+- Section: "Vagas em destaque"
+- Section: content/editorial (placeholder)
+
+Use large images and clean layout.
+
+---
+
+### 2. Company Page (/company/[id])
+
+This is the most important page.
+
+Structure should include:
+
+- Large cover image (top banner)
+- Company logo overlapping the banner
+- Company name + short tagline
+
+Sections (visually separated):
+
+1. Sobre a empresa  
+2. Cultura e ambiente  
+3. Vagas abertas  
+
+Include:
+- Rich text descriptions
+- Bullet points (benefícios, cultura, etc.)
+- Office/location info
+- Job listings
+- Placeholder for video section
+
+---
+
+### 3. Job Page (/job/[id])
+
+- Job title
+- Company name
+- Location
+- Sections:
+  - Descrição da vaga
+  - Responsabilidades
+  - Requisitos
+- CTA button: "Candidatar-se"
+
+---
+
+## Data
+
+Use ONLY 2 companies with rich, realistic data in Portuguese.
+
+Each company must have:
+- Strong brand personality
+- Detailed descriptions
+- 2–3 job openings
+
+Make it feel like a real platform.
+
+---
+
+## Design Style
+
+- Very clean
+- Modern startup feel
+- Generous spacing
+- Rounded corners
+- Soft shadows
+- High-quality layout
+
+---
+
+## Tech Stack
+
+- Next.js (App Router)
+- TypeScript
+- Tailwind CSS
+
+---
+
+## Components
+
+- Navbar
+- Hero section
+- CompanyCard
+- JobCard
+- Section layouts
+
+---
+
+## UX Requirements
+
+- Must feel premium
+- Must NOT feel like a basic job board
+- Focus on storytelling and clarity
+
+---
+
+## Output
+
+Deliver a working MVP with clean structure and strong UI.
+
+---
+
+## Goal
+
+When someone sees this, they should feel:
+"This looks like a high-quality modern job platform similar to top international products."
