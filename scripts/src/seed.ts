@@ -242,7 +242,7 @@ async function seed() {
       {
         name: "Havan",
         slug: "havan",
-        logo: "https://logo.clearbit.com/havan.com.br",
+        logo: "/orbi/logos/havan.png",
         coverImage: "https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=1200&h=400&fit=crop",
         tagline: "O maior varejo de Santa Catarina está se transformando em tech.",
         description: "A Havan é uma das maiores redes de varejo do Brasil, com mais de 180 lojas e sede em Brusque/SC. Estamos em acelerada transformação digital, investindo fortemente em e-commerce, dados, automação e novas tecnologias. Nossa área de tecnologia cresce a cada ano — buscamos talentos que queiram construir o varejo do futuro junto com a gente, com a solidez de uma empresa que fatura mais de R$ 10 bilhões por ano.",
