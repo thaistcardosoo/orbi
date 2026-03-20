@@ -29,3 +29,4 @@ export * from "./listJobsLevel";
 export * from "./listJobsModality";
 export * from "./listJobsParams";
 export * from "./platformStats";
+export * from "./teamVideo";

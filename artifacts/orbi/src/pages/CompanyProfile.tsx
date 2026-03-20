@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import JobCard from "@/components/JobCard";
+import { TeamVideoCard } from "@/components/TeamVideoCard";
 import { useGetCompany, useListJobs } from "@workspace/api-client-react";
 
 const SIZE_LABELS: Record<string, string> = {
@@ -247,6 +248,18 @@ export default function CompanyProfile() {
                       <div className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
                       <span className="text-sm text-foreground/80">{benefit}</span>
                     </div>
+                  ))}
+                </div>
+              </section>
+            )}
+
+            {/* Team Videos */}
+            {company.teamVideos && company.teamVideos.length > 0 && (
+              <section data-testid="company-team-videos">
+                <h2 className="text-xl font-bold text-foreground mb-4">Conheça o time</h2>
+                <div className={`grid gap-4 ${company.teamVideos.length === 1 ? "grid-cols-1" : company.teamVideos.length === 2 ? "grid-cols-2" : "grid-cols-2 md:grid-cols-3"}`}>
+                  {company.teamVideos.map((video, i) => (
+                    <TeamVideoCard key={i} video={video} />
                   ))}
                 </div>
               </section>

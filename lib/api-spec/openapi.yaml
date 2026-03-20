@@ -290,6 +290,23 @@ components:
         - question
         - answer
 
+    TeamVideo:
+      type: object
+      properties:
+        url:
+          type: string
+        name:
+          type: string
+        role:
+          type: string
+        thumbnail:
+          type: string
+          nullable: true
+      required:
+        - url
+        - name
+        - role
+
     Company:
       type: object
       properties:
@@ -348,6 +365,11 @@ components:
           type: array
           items:
             type: string
+        teamVideos:
+          type: array
+          nullable: true
+          items:
+            $ref: "#/components/schemas/TeamVideo"
         jobCount:
           type: integer
         createdAt:

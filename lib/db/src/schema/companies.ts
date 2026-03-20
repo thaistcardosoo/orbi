@@ -1,4 +1,4 @@
-import { pgTable, text, integer, boolean, timestamp, serial } from "drizzle-orm/pg-core";
+import { pgTable, text, integer, boolean, timestamp, serial, jsonb } from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod/v4";
 
@@ -26,6 +26,7 @@ export const companiesTable = pgTable("companies", {
   benefits: text("benefits").array().default([]).notNull(),
   values: text("values").array().default([]).notNull(),
   photos: text("photos").array().default([]).notNull(),
+  teamVideos: jsonb("team_videos").$type<Array<{ url: string; name: string; role: string; thumbnail?: string }>>(),
   createdAt: timestamp("created_at").defaultNow().notNull(),
 });
 

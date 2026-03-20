@@ -18,6 +18,13 @@ export interface FaqItem {
   answer: string;
 }
 
+export interface TeamVideo {
+  url: string;
+  name: string;
+  role: string;
+  thumbnail?: string | null;
+}
+
 export type CompanySize = (typeof CompanySize)[keyof typeof CompanySize];
 
 export const CompanySize = {
@@ -51,6 +58,7 @@ export interface Company {
   benefits: string[];
   values: string[];
   photos: string[];
+  teamVideos?: TeamVideo[] | null;
   jobCount: number;
   createdAt?: string;
 }

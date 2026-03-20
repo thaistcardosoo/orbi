@@ -56,6 +56,16 @@ export const ListCompaniesResponse = zod.object({
       benefits: zod.array(zod.string()),
       values: zod.array(zod.string()),
       photos: zod.array(zod.string()),
+      teamVideos: zod
+        .array(
+          zod.object({
+            url: zod.string(),
+            name: zod.string(),
+            role: zod.string(),
+            thumbnail: zod.string().nullish(),
+          }),
+        )
+        .nullish(),
       jobCount: zod.number(),
       createdAt: zod.date().optional(),
     }),
@@ -94,6 +104,16 @@ export const GetCompanyResponse = zod.object({
   benefits: zod.array(zod.string()),
   values: zod.array(zod.string()),
   photos: zod.array(zod.string()),
+  teamVideos: zod
+    .array(
+      zod.object({
+        url: zod.string(),
+        name: zod.string(),
+        role: zod.string(),
+        thumbnail: zod.string().nullish(),
+      }),
+    )
+    .nullish(),
   jobCount: zod.number(),
   createdAt: zod.date().optional(),
 });

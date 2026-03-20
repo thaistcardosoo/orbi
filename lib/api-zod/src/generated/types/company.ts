@@ -6,6 +6,7 @@
  * OpenAPI spec version: 0.1.0
  */
 import type { CompanySize } from "./companySize";
+import type { TeamVideo } from "./teamVideo";
 
 export interface Company {
   id: number;
@@ -31,6 +32,7 @@ export interface Company {
   benefits: string[];
   values: string[];
   photos: string[];
+  teamVideos?: TeamVideo[] | null;
   jobCount: number;
   createdAt?: Date;
 }
