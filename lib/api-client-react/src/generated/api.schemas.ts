@@ -13,6 +13,11 @@ export interface ErrorResponse {
   error: string;
 }
 
+export interface FaqItem {
+  question: string;
+  answer: string;
+}
+
 export type CompanySize = (typeof CompanySize)[keyof typeof CompanySize];
 
 export const CompanySize = {
@@ -35,6 +40,8 @@ export interface Company {
   foundedYear?: number;
   employeeCount?: number;
   averageAge?: number;
+  genderRatio?: string | null;
+  videoUrl?: string | null;
   city: string;
   state: string;
   website?: string;
@@ -91,6 +98,7 @@ export interface Job {
   description: string;
   requirements: string[];
   benefits: string[];
+  faq?: FaqItem[] | null;
   city: string;
   state: string;
   modality: JobModality;

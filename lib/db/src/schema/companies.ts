@@ -15,6 +15,8 @@ export const companiesTable = pgTable("companies", {
   foundedYear: integer("founded_year"),
   employeeCount: integer("employee_count"),
   averageAge: integer("average_age"),
+  genderRatio: text("gender_ratio"),
+  videoUrl: text("video_url"),
   city: text("city").notNull(),
   state: text("state").notNull(),
   website: text("website"),

@@ -20,6 +20,8 @@ export interface Company {
   foundedYear?: number;
   employeeCount?: number;
   averageAge?: number;
+  genderRatio?: string | null;
+  videoUrl?: string | null;
   city: string;
   state: string;
   website?: string;

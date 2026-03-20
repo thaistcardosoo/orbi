@@ -14,6 +14,7 @@ export * from "./company";
 export * from "./companyListResponse";
 export * from "./companySize";
 export * from "./errorResponse";
+export * from "./faqItem";
 export * from "./healthStatus";
 export * from "./job";
 export * from "./jobContractType";

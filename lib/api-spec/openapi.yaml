@@ -275,6 +275,17 @@ components:
       required:
         - error
 
+    FaqItem:
+      type: object
+      properties:
+        question:
+          type: string
+        answer:
+          type: string
+      required:
+        - question
+        - answer
+
     Company:
       type: object
       properties:
@@ -303,6 +314,12 @@ components:
           type: integer
         averageAge:
           type: integer
+        genderRatio:
+          type: string
+          nullable: true
+        videoUrl:
+          type: string
+          nullable: true
         city:
           type: string
         state:
@@ -388,6 +405,11 @@ components:
           type: array
           items:
             type: string
+        faq:
+          type: array
+          nullable: true
+          items:
+            $ref: "#/components/schemas/FaqItem"
         city:
           type: string
         state:

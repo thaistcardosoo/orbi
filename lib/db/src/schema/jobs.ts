@@ -1,7 +1,9 @@
-import { pgTable, text, integer, boolean, timestamp, serial } from "drizzle-orm/pg-core";
+import { pgTable, text, integer, boolean, timestamp, serial, jsonb } from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod/v4";
 import { companiesTable } from "./companies";
+
+export type FaqItem = { question: string; answer: string };
 
 export const jobsTable = pgTable("jobs", {
   id: serial("id").primaryKey(),
@@ -12,6 +14,7 @@ export const jobsTable = pgTable("jobs", {
   description: text("description").notNull(),
   requirements: text("requirements").array().default([]).notNull(),
   benefits: text("benefits").array().default([]).notNull(),
+  faq: jsonb("faq").$type<FaqItem[]>(),
   city: text("city").notNull(),
   state: text("state").notNull(),
   modality: text("modality").notNull(),

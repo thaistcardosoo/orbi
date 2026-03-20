@@ -1,11 +1,13 @@
 import { useParams, Link } from "wouter";
-import { ArrowLeft, MapPin, Clock, DollarSign, Briefcase, Building2, CheckCircle, Share2, Bookmark } from "lucide-react";
+import { ArrowLeft, MapPin, DollarSign, Briefcase, Building2, CheckCircle, Share2, Bookmark, Copy, Linkedin, MessageCircle, ChevronDown, ChevronUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { useGetJob } from "@workspace/api-client-react";
+import type { FaqItem } from "@workspace/api-client-react";
 import { useToast } from "@/hooks/use-toast";
+import { useState } from "react";
 
 const MODALITY_LABELS: Record<string, string> = {
   presencial: "Presencial",
@@ -42,18 +44,112 @@ function formatSalary(min?: number | null, max?: number | null): string | null {
   return null;
 }
 
+function buildAutoFaq(job: {
+  modality: string;
+  contractType: string;
+  level: string;
+  salaryMin?: number | null;
+  salaryMax?: number | null;
+}): FaqItem[] {
+  const faqs: FaqItem[] = [];
+
+  faqs.push({
+    question: "É obrigatório anexar currículo?",
+    answer: "Sim, é necessário anexar seu currículo para se candidatar a esta vaga.",
+  });
+
+  if (job.modality === "remoto") {
+    faqs.push({
+      question: "Esta vaga permite trabalho remoto?",
+      answer: "Sim! Esta vaga é 100% remota. Você pode trabalhar de qualquer lugar do Brasil.",
+    });
+  } else if (job.modality === "hibrido") {
+    faqs.push({
+      question: "Esta vaga permite trabalho remoto?",
+      answer: "Esta vaga é híbrida — combinando dias de trabalho presencial e remoto conforme combinado com a equipe.",
+    });
+  } else {
+    faqs.push({
+      question: "Esta vaga permite trabalho remoto?",
+      answer: "Esta vaga é presencial. A presença no escritório é necessária no horário acordado.",
+    });
+  }
+
+  faqs.push({
+    question: "Qual o tipo de contrato oferecido?",
+    answer: `O contrato é ${CONTRACT_LABELS[job.contractType] ?? job.contractType}.`,
+  });
+
+  if (!job.salaryMin && !job.salaryMax) {
+    faqs.push({
+      question: "O salário é divulgado?",
+      answer: "A remuneração não está especificada nesta vaga. Você poderá discutir valores durante o processo seletivo.",
+    });
+  }
+
+  return faqs;
+}
+
+function FaqAccordion({ items }: { items: FaqItem[] }) {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  return (
+    <div className="divide-y divide-border" data-testid="job-faq">
+      {items.map((item, i) => (
+        <div key={i}>
+          <button
+            className="w-full flex items-center justify-between py-4 text-left gap-4 group"
+            onClick={() => setOpenIndex(openIndex === i ? null : i)}
+            aria-expanded={openIndex === i}
+          >
+            <span className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors">
+              {item.question}
+            </span>
+            {openIndex === i
+              ? <ChevronUp className="w-4 h-4 text-muted-foreground flex-shrink-0" />
+              : <ChevronDown className="w-4 h-4 text-muted-foreground flex-shrink-0" />
+            }
+          </button>
+          {openIndex === i && (
+            <div className="pb-4">
+              <p className="text-sm text-foreground/70 leading-relaxed">{item.answer}</p>
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+  );
+}
+
 export default function JobDetail() {
   const params = useParams<{ id: string }>();
   const id = Number(params.id);
   const { toast } = useToast();
 
-  const { data: job, isLoading, error } = useGetJob({ id });
+  const { data: job, isLoading, error } = useGetJob(id);
 
   function handleApply() {
     toast({
       title: "Candidatura enviada!",
       description: "Sua candidatura foi registrada com sucesso. Boa sorte!",
     });
+  }
+
+  function handleCopyLink() {
+    navigator.clipboard.writeText(window.location.href).then(() => {
+      toast({ title: "Link copiado!", description: "O link da vaga foi copiado para a área de transferência." });
+    });
+  }
+
+  function handleShareLinkedIn() {
+    const url = encodeURIComponent(window.location.href);
+    window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`, "_blank");
+  }
+
+  function handleShareWhatsApp() {
+    const url = encodeURIComponent(window.location.href);
+    const text = encodeURIComponent(`Confira essa vaga: ${job?.title} na ${job?.companyName} — `);
+    window.open(`https://wa.me/?text=${text}${url}`, "_blank");
   }
 
   if (isLoading) {
@@ -91,6 +187,7 @@ export default function JobDetail() {
   }
 
   const salary = formatSalary(job.salaryMin, job.salaryMax);
+  const faqItems: FaqItem[] = (job.faq && job.faq.length > 0) ? job.faq : buildAutoFaq(job);
 
   return (
     <div className="min-h-screen bg-background">
@@ -106,8 +203,9 @@ export default function JobDetail() {
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 pb-16">
           {/* Main */}
-          <div className="lg:col-span-2 space-y-8">
-            <div className="bg-card border border-card-border rounded-xl p-6" data-testid="job-header">
+          <div className="lg:col-span-2 space-y-6">
+            {/* Header card */}
+            <div className="bg-card border border-border rounded-xl p-6" data-testid="job-header">
               <div className="flex items-start gap-4">
                 <div className="w-16 h-16 rounded-xl bg-muted flex items-center justify-center overflow-hidden flex-shrink-0">
                   {job.companyLogo ? (
@@ -116,10 +214,10 @@ export default function JobDetail() {
                     <span className="text-2xl font-black text-muted-foreground">{job.companyName[0]}</span>
                   )}
                 </div>
-                <div className="flex-1">
+                <div className="flex-1 min-w-0">
                   <h1 className="text-2xl font-black text-foreground leading-tight" data-testid="job-title">{job.title}</h1>
                   <Link href={`/empresas/${job.companyId}`}>
-                    <span className="text-muted-foreground hover:text-foreground cursor-pointer mt-1 inline-block" data-testid="job-company-name">
+                    <span className="text-muted-foreground hover:text-foreground cursor-pointer mt-1 inline-block text-sm" data-testid="job-company-name">
                       {job.companyName}
                     </span>
                   </Link>
@@ -134,7 +232,7 @@ export default function JobDetail() {
                 <Badge variant="secondary" data-testid="job-level">{LEVEL_LABELS[job.level] ?? job.level}</Badge>
               </div>
 
-              <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div className="mt-4 flex flex-wrap gap-4">
                 <div className="flex items-center gap-2 text-sm text-muted-foreground">
                   <MapPin className="w-4 h-4 flex-shrink-0" />
                   <span data-testid="job-location">{job.city}, {job.state}</span>
@@ -160,22 +258,59 @@ export default function JobDetail() {
                   <Bookmark className="w-4 h-4 mr-2" />
                   Salvar
                 </Button>
-                <Button variant="ghost" size="lg" data-testid="button-share-job">
-                  <Share2 className="w-4 h-4 mr-2" />
-                  Compartilhar
-                </Button>
+              </div>
+
+              {/* Social sharing */}
+              <div className="mt-5 pt-5 border-t border-border">
+                <p className="text-xs text-muted-foreground mb-3 font-medium uppercase tracking-wide">Compartilhar</p>
+                <div className="flex gap-2 flex-wrap">
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={handleCopyLink}
+                    className="flex items-center gap-2"
+                    data-testid="button-copy-link"
+                  >
+                    <Copy className="w-3.5 h-3.5" />
+                    Copiar link
+                  </Button>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={handleShareLinkedIn}
+                    className="flex items-center gap-2 text-[#0A66C2] border-[#0A66C2]/30 hover:bg-[#0A66C2]/5"
+                    data-testid="button-share-linkedin"
+                  >
+                    <Linkedin className="w-3.5 h-3.5" />
+                    LinkedIn
+                  </Button>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={handleShareWhatsApp}
+                    className="flex items-center gap-2 text-[#25D366] border-[#25D366]/30 hover:bg-[#25D366]/5"
+                    data-testid="button-share-whatsapp"
+                  >
+                    <MessageCircle className="w-3.5 h-3.5" />
+                    WhatsApp
+                  </Button>
+                  <Button variant="ghost" size="sm" className="flex items-center gap-2 ml-auto text-muted-foreground" data-testid="button-share-other">
+                    <Share2 className="w-3.5 h-3.5" />
+                    Mais opções
+                  </Button>
+                </div>
               </div>
             </div>
 
             {/* Description */}
-            <section className="bg-card border border-card-border rounded-xl p-6" data-testid="job-description">
+            <section className="bg-card border border-border rounded-xl p-6" data-testid="job-description">
               <h2 className="text-lg font-bold text-foreground mb-4">Sobre a vaga</h2>
               <p className="text-foreground/70 leading-relaxed whitespace-pre-line">{job.description}</p>
             </section>
 
             {/* Requirements */}
             {job.requirements && job.requirements.length > 0 && (
-              <section className="bg-card border border-card-border rounded-xl p-6" data-testid="job-requirements">
+              <section className="bg-card border border-border rounded-xl p-6" data-testid="job-requirements">
                 <h2 className="text-lg font-bold text-foreground mb-4">Requisitos</h2>
                 <ul className="space-y-2.5">
                   {job.requirements.map((req, i) => (
@@ -190,7 +325,7 @@ export default function JobDetail() {
 
             {/* Benefits */}
             {job.benefits && job.benefits.length > 0 && (
-              <section className="bg-card border border-card-border rounded-xl p-6" data-testid="job-benefits">
+              <section className="bg-card border border-border rounded-xl p-6" data-testid="job-benefits">
                 <h2 className="text-lg font-bold text-foreground mb-4">Benefícios</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                   {job.benefits.map((benefit, i) => (
@@ -202,11 +337,17 @@ export default function JobDetail() {
                 </div>
               </section>
             )}
+
+            {/* FAQ */}
+            <section className="bg-card border border-border rounded-xl p-6" data-testid="job-faq-section">
+              <h2 className="text-lg font-bold text-foreground mb-2">Perguntas frequentes sobre esta vaga</h2>
+              <FaqAccordion items={faqItems} />
+            </section>
           </div>
 
           {/* Sidebar */}
           <div className="space-y-4">
-            <div className="bg-primary rounded-xl p-5" data-testid="apply-cta-card">
+            <div className="bg-primary rounded-xl p-5 sticky top-6" data-testid="apply-cta-card">
               <h3 className="font-bold text-primary-foreground text-lg mb-1">Pronto para se candidatar?</h3>
               <p className="text-primary-foreground/70 text-sm mb-4">Crie um perfil grátis e candidate-se em segundos.</p>
               <Button
@@ -218,10 +359,10 @@ export default function JobDetail() {
               </Button>
             </div>
 
-            <div className="bg-card border border-card-border rounded-xl p-5" data-testid="company-sidebar-card">
+            <div className="bg-card border border-border rounded-xl p-5" data-testid="company-sidebar-card">
               <h3 className="font-bold text-foreground mb-4">Sobre a empresa</h3>
               <div className="flex items-center gap-3 mb-3">
-                <div className="w-10 h-10 rounded-lg bg-muted flex items-center justify-center overflow-hidden">
+                <div className="w-10 h-10 rounded-lg bg-muted flex items-center justify-center overflow-hidden flex-shrink-0">
                   {job.companyLogo ? (
                     <img src={job.companyLogo} alt={job.companyName} className="w-full h-full object-cover" />
                   ) : (

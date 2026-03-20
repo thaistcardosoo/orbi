@@ -5,6 +5,7 @@
  * Orbi API - Brazilian job platform for startups and tech companies
  * OpenAPI spec version: 0.1.0
  */
+import type { FaqItem } from "./faqItem";
 import type { JobContractType } from "./jobContractType";
 import type { JobLevel } from "./jobLevel";
 import type { JobModality } from "./jobModality";
@@ -20,6 +21,7 @@ export interface Job {
   description: string;
   requirements: string[];
   benefits: string[];
+  faq?: FaqItem[] | null;
   city: string;
   state: string;
   modality: JobModality;

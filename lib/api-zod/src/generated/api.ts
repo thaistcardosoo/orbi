@@ -45,6 +45,8 @@ export const ListCompaniesResponse = zod.object({
       foundedYear: zod.number().optional(),
       employeeCount: zod.number().optional(),
       averageAge: zod.number().optional(),
+      genderRatio: zod.string().nullish(),
+      videoUrl: zod.string().nullish(),
       city: zod.string(),
       state: zod.string(),
       website: zod.string().optional(),
@@ -81,6 +83,8 @@ export const GetCompanyResponse = zod.object({
   foundedYear: zod.number().optional(),
   employeeCount: zod.number().optional(),
   averageAge: zod.number().optional(),
+  genderRatio: zod.string().nullish(),
+  videoUrl: zod.string().nullish(),
   city: zod.string(),
   state: zod.string(),
   website: zod.string().optional(),
@@ -125,6 +129,14 @@ export const ListJobsResponse = zod.object({
       description: zod.string(),
       requirements: zod.array(zod.string()),
       benefits: zod.array(zod.string()),
+      faq: zod
+        .array(
+          zod.object({
+            question: zod.string(),
+            answer: zod.string(),
+          }),
+        )
+        .nullish(),
       city: zod.string(),
       state: zod.string(),
       modality: zod.enum(["presencial", "remoto", "hibrido"]),
@@ -157,6 +169,14 @@ export const GetJobResponse = zod.object({
   description: zod.string(),
   requirements: zod.array(zod.string()),
   benefits: zod.array(zod.string()),
+  faq: zod
+    .array(
+      zod.object({
+        question: zod.string(),
+        answer: zod.string(),
+      }),
+    )
+    .nullish(),
   city: zod.string(),
   state: zod.string(),
   modality: zod.enum(["presencial", "remoto", "hibrido"]),
