@@ -1,6 +1,9 @@
-import { Link } from "wouter";
+import { useState } from "react";
+import { Link, useLocation } from "wouter";
 import { MapPin, Clock, DollarSign } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import ApplicationModal from "@/components/ApplicationModal";
 
 interface JobCardProps {
   id: number;
@@ -68,10 +71,18 @@ function formatSalary(min?: number | null, max?: number | null): string | null {
 
 export default function JobCard({ id, title, companyId, companyName, companyLogo, city, state, modality, contractType, level, salaryMin, salaryMax, featured, createdAt }: JobCardProps) {
   const salary = formatSalary(salaryMin, salaryMax);
+  const [applyOpen, setApplyOpen] = useState(false);
+  const [, navigate] = useLocation();
+
+  const jobContext = { id, title, companyName, companyLogo, city, state, modality, contractType, level };
 
   return (
-    <Link href={`/vagas/${id}`} data-testid={`card-job-${id}`}>
-      <div className="bg-card border border-card-border rounded-xl p-5 hover:shadow-md transition-all duration-200 cursor-pointer group hover:border-primary/30 relative">
+    <>
+      <div
+        className="bg-card border border-card-border rounded-xl p-5 hover:shadow-md transition-all duration-200 cursor-pointer group hover:border-primary/30 relative"
+        data-testid={`card-job-${id}`}
+        onClick={() => navigate(`/vagas/${id}`)}
+      >
         {featured && (
           <div className="absolute top-4 right-4">
             <Badge className="bg-primary text-primary-foreground text-xs" data-testid={`badge-featured-job-${id}`}>
@@ -123,7 +134,27 @@ export default function JobCard({ id, title, companyId, companyName, companyLogo
             {timeAgo(createdAt)}
           </span>
         </div>
+
+        <div className="mt-4 pt-4 border-t border-border flex items-center justify-between gap-3">
+          <Link href={`/vagas/${id}`} onClick={e => e.stopPropagation()} className="text-xs text-muted-foreground hover:text-foreground transition-colors">
+            Ver detalhes →
+          </Link>
+          <Button
+            size="sm"
+            className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold text-xs h-8 px-4"
+            onClick={e => { e.stopPropagation(); setApplyOpen(true); }}
+            data-testid={`button-apply-card-${id}`}
+          >
+            Candidatar-se
+          </Button>
+        </div>
       </div>
-    </Link>
+
+      <ApplicationModal
+        open={applyOpen}
+        onClose={() => setApplyOpen(false)}
+        job={jobContext}
+      />
+    </>
   );
 }

@@ -49,6 +49,10 @@ interface ApplicationModalProps {
 }
 
 function generateApplicationQuestions(job: JobContext): string[] {
+  if (job.faq && job.faq.length >= 2) {
+    return job.faq.slice(0, 3).map(item => item.question);
+  }
+
   const questions: string[] = [];
 
   if (job.level === "junior") {
@@ -439,7 +443,7 @@ function Step4({ form, setForm, submitError }: {
       <div className="rounded-lg bg-muted/50 border border-border p-4 space-y-3">
         <p className="text-xs font-semibold text-foreground uppercase tracking-wide">Termos e condições</p>
         <p className="text-xs text-muted-foreground leading-relaxed">
-          Ao enviar sua candidatura, você autoriza a <strong>{""}</strong> Orbi e a empresa anunciante a armazenar e processar seus dados pessoais para fins de recrutamento e seleção, em conformidade com a LGPD (Lei Geral de Proteção de Dados).
+          Ao enviar sua candidatura, você autoriza a <strong>Orbi</strong> e a empresa anunciante a armazenar e processar seus dados pessoais para fins de recrutamento e seleção, em conformidade com a LGPD (Lei Geral de Proteção de Dados).
         </p>
         <div className="flex items-start gap-2.5">
           <Checkbox
