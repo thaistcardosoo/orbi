@@ -267,7 +267,7 @@ async function seed() {
       {
         name: "Softplan",
         slug: "softplan",
-        logo: "https://logo.clearbit.com/softplan.com.br",
+        logo: "/orbi/logos/softplan.png",
         coverImage: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&h=400&fit=crop",
         tagline: "Software que transforma a gestão pública e da construção no Brasil.",
         description: "A Softplan é uma das maiores empresas de software do Brasil, com foco em soluções para o Judiciário, Ministério Público, e setor de construção civil. Fundada em 1990 em Florianópolis, somos referência em tecnologia para gestão pública e privada. Com mais de 2.000 colaboradores, nossa cultura valoriza inovação, qualidade técnica e impacto real na sociedade brasileira. Venha construir software que processa processos judiciais de milhões de brasileiros.",
