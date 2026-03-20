@@ -47,7 +47,7 @@ function MediaGallery({ videoUrl, photos, companyName }: { videoUrl?: string | n
             )}
           </div>
           {bottomPhotos.length > 0 && (
-            <div className={`grid gap-3 grid-cols-${Math.min(bottomPhotos.length, 3)}`}>
+            <div className={`grid gap-3 ${bottomPhotos.length === 1 ? "grid-cols-1" : bottomPhotos.length === 2 ? "grid-cols-2" : "grid-cols-3"}`}>
               {bottomPhotos.map((photo, i) => (
                 <div key={i} className="aspect-video rounded-xl overflow-hidden bg-muted">
                   <img src={photo} alt={`${companyName} foto ${i + 3}`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
