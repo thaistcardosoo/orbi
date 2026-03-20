@@ -297,7 +297,7 @@ async function seed() {
       {
         name: "Portobello",
         slug: "portobello",
-        logo: "https://logo.clearbit.com/portobello.com.br",
+        logo: "/orbi/logos/portobello.png",
         coverImage: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200&h=400&fit=crop",
         tagline: "Design, tecnologia e sustentabilidade moldando o futuro.",
         description: "A Portobello é uma das maiores fabricantes de revestimentos cerâmicos do mundo, fundada em 1977 em Tijucas/SC. Com mais de 4.000 colaboradores e presença em 70 países, investimos pesado em digitalização, automação de fábrica e e-commerce. Nossa área de tecnologia lidera projetos de IoT industrial, data analytics e transformação digital. Aqui, a indústria encontra a inovação.",
