@@ -80,6 +80,28 @@ function buildAutoFaq(job: {
     answer: `O contrato é ${CONTRACT_LABELS[job.contractType] ?? job.contractType}.`,
   });
 
+  if (job.level === "junior") {
+    faqs.push({
+      question: "Qual o nível de experiência esperado para esta vaga?",
+      answer: "Esta é uma vaga Júnior. Buscamos candidatos em início de carreira, com vontade de aprender e crescer. Experiências em projetos pessoais, estágios ou bootcamps são bem-vindas.",
+    });
+  } else if (job.level === "pleno") {
+    faqs.push({
+      question: "Qual o nível de experiência esperado para esta vaga?",
+      answer: "Esta é uma vaga Pleno. Esperamos candidatos com 2 a 5 anos de experiência na área, capazes de trabalhar com autonomia e contribuir para soluções do time.",
+    });
+  } else if (job.level === "senior") {
+    faqs.push({
+      question: "Qual o nível de experiência esperado para esta vaga?",
+      answer: "Esta é uma vaga Sênior. Buscamos profissionais com sólida experiência (geralmente 5+ anos), capazes de liderar decisões técnicas e mentorear colegas.",
+    });
+  } else if (job.level === "especialista") {
+    faqs.push({
+      question: "Qual o nível de experiência esperado para esta vaga?",
+      answer: "Esta é uma vaga para Especialista. Procuramos referências técnicas de alto nível, com expertise profunda na área e capacidade de impacto estratégico na organização.",
+    });
+  }
+
   if (!job.salaryMin && !job.salaryMax) {
     faqs.push({
       question: "O salário é divulgado?",
