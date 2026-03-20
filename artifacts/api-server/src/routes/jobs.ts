@@ -7,7 +7,7 @@ const router: IRouter = Router();
 
 router.get("/", async (req, res) => {
   try {
-    const { search, location, modality, contractType, level, companyId, category, limit = "20", offset = "0" } = req.query;
+    const { search, location, state, modality, contractType, level, companyId, category, limit = "20", offset = "0" } = req.query;
 
     const conditions: SQL[] = [];
 
@@ -16,6 +16,9 @@ router.get("/", async (req, res) => {
     }
     if (location && typeof location === "string") {
       conditions.push(ilike(jobsTable.city, `%${location}%`));
+    }
+    if (state && typeof state === "string") {
+      conditions.push(eq(jobsTable.state, state.toUpperCase()));
     }
     if (modality && typeof modality === "string") {
       conditions.push(eq(jobsTable.modality, modality));

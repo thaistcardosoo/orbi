@@ -107,6 +107,7 @@ export const listJobsQueryOffsetDefault = 0;
 export const ListJobsQueryParams = zod.object({
   search: zod.coerce.string().optional(),
   location: zod.coerce.string().optional(),
+  state: zod.coerce.string().optional(),
   modality: zod.enum(["presencial", "remoto", "hibrido"]).optional(),
   contractType: zod.enum(["clt", "pj", "estagio", "freelancer"]).optional(),
   level: zod.enum(["junior", "pleno", "senior", "especialista"]).optional(),

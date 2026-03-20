@@ -85,7 +85,7 @@ export default function JobCard({ id, title, companyId, companyName, companyLogo
             {companyLogo ? (
               <img src={companyLogo} alt={companyName} className="w-full h-full object-cover" />
             ) : (
-              <span className="text-lg font-black text-muted-foreground">{companyName[0]}</span>
+              <span className="text-lg font-black text-muted-foreground">{companyName?.[0] ?? "?"}</span>
             )}
           </div>
 

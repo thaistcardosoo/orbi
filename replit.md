@@ -24,11 +24,23 @@ pnpm workspace monorepo using TypeScript. Each package manages its own dependenc
 ### Features (MVP)
 - Home page with hero search, stats, featured companies, categories, recent jobs, articles
 - Companies directory with search and category/size filters
-- Company profiles with description, values, benefits, photos, and job listings
-- Jobs listing with advanced filters (modality, contract type, level, category)
-- Job detail page with requirements, benefits, and apply CTA
+- Company profiles with description, values, benefits, photos, jobs listing
+  - Editorial MediaGallery: YouTube iframe + photo grid on dark background
+  - StatCard stats bar: Fundada, Colaboradores, Paridade, Média de idade
+- Jobs listing with advanced filters (modality, contract type, level, category, state)
+- Job detail page with requirements, benefits, FaqAccordion (auto-generated + seeded), social sharing
 - Articles/media section with career content
+- **State/city pages**: `/estados/sc` — editorial page for Santa Catarina with hero, stats, company strip, sidebar filters (city chips, modality), live job listing filtered by state
 - Full Brazilian Portuguese UI (CLT/PJ, R$ salary, Brazilian cities)
+
+### Seed data
+- 12 companies (Nubank, iFood, Conta Simples, RD Station, Loft, Hotmart, Pipefy, Sympla + 4 SC: WEG, Havan, Softplan, Portobello)
+- 22 jobs across SP, MG, PR and SC (Florianópolis, Jaraguá do Sul, Brusque, Tijucas)
+- 6 editorial articles
+
+### API filters
+- Jobs: `search`, `location` (city ilike), `state` (exact), `modality`, `contractType`, `level`, `companyId`, `category`
+- Companies: `search`, `category`, `size`, `featured`
 
 ### Brand
 - Primary: Orbi Yellow (#FFD100)

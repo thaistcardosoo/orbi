@@ -11,6 +11,7 @@ export default function Navbar() {
     { href: "/vagas", label: "Vagas" },
     { href: "/empresas", label: "Empresas" },
     { href: "/artigos", label: "Conteúdo" },
+    { href: "/estados/sc", label: "Santa Catarina" },
   ];
 
   return (

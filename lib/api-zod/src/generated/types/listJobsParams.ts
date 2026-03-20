@@ -12,6 +12,7 @@ import type { ListJobsModality } from "./listJobsModality";
 export type ListJobsParams = {
   search?: string;
   location?: string;
+  state?: string;
   modality?: ListJobsModality;
   contractType?: ListJobsContractType;
   level?: ListJobsLevel;

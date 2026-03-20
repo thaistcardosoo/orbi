@@ -9,6 +9,7 @@ import CompanyProfile from "@/pages/CompanyProfile";
 import Jobs from "@/pages/Jobs";
 import JobDetail from "@/pages/JobDetail";
 import Articles from "@/pages/Articles";
+import StatePage from "@/pages/StatePage";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -28,6 +29,7 @@ function Router() {
       <Route path="/vagas" component={Jobs} />
       <Route path="/vagas/:id" component={JobDetail} />
       <Route path="/artigos" component={Articles} />
+      <Route path="/estados/sc" component={StatePage} />
       <Route component={NotFound} />
     </Switch>
   );
